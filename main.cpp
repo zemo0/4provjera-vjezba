@@ -82,6 +82,18 @@ int main()
             cin >> saldo[brKlijenata];
             brKlijenata++;
         }
+        else if(izbor == 2)
+        {
+            for(int i = 0; i < brKlijenata; i++)
+            {
+                cout << brRacuna[i] << ", " << prezimeIme[i] << ", " << saldo[i] << endl;
+            }
+            cout << "Suma svih salda je " << accumulate(saldo, saldo+brKlijenata, 0.0) << endl;
+            int max_indeks = max_element(saldo, saldo+brKlijenata) - saldo;
+            cout << "Klijent koji ima najveži saldo je: " << prezimeIme[max_indeks] << endl;
+            cout << "Broj racuna s negativnim saldom: " << count_if(saldo, saldo+brKlijenata, negativan) << endl;
+            cout << "Broj tekucih racuna je: " << count_if(brRacuna, brRacuna+brKlijenata, tekuci) << endl;
+        }
 
     return 0; //asdsadsad
 }
