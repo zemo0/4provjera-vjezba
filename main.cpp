@@ -129,6 +129,33 @@ int main()
                 cout << "Trazenog racuna nema." << endl;
 
         }
+        else if(izbor == 6)
+        {
+            string imena[1000];
+            for(int i=0;i<brKlijenata;i++){
+                imena[i]=prezimeIme[i];
+            }
+            sort(imena, imena+brKlijenata);
+            for(int i=0;i<brKlijenata;i++){
+                for(int j=0;j<brKlijenata;j++){
+                    if(imena[i] == prezimeIme[j]){
+                        cout<<prezimeIme[j]<<endl<<brRacuna[j]<<endl<<saldo[j]<<endl;
+                    }
+                }
+            }
+        }
+        else if(izbor == 7)
+        {
+            cout << "Izlaz iz programa" << endl;
+            break;
+        }
+        else
+        {
+            cout << "Krivi unos." << endl;
+        }
+        cout << endl;
+        system("pause");
+    }
 
     return 0; //asdsadsad
 }
