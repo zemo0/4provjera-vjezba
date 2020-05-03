@@ -105,6 +105,30 @@ int main()
                 cout << "Nema takvih klijenata." << endl;
             }
         }
+        else if(izbor == 4)
+        {
+            unsigned long long int broj;
+            cout << "Unesite broj racuna kojeg zelite izbrisati: ";
+            cin >> broj;
+            int i;
+            for(i = 0; i < brKlijenata; i++)
+            {
+                if(brRacuna[i] == broj)
+                {
+                    for(int j = i; j < brKlijenata - 1; j++)
+                    {
+                        brRacuna[j] = brRacuna[j+1];
+                        prezimeIme[j] = prezimeIme[j+1];
+                        saldo[j] = saldo[j+1];
+                    }
+                    brKlijenata--;
+                    break;
+                }
+            }
+            if(i==brKlijenata)
+                cout << "Trazenog racuna nema." << endl;
+
+        }
 
     return 0; //asdsadsad
 }
