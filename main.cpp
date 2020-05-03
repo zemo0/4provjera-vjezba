@@ -129,7 +129,7 @@ int main()
                 cout << "Trazenog racuna nema." << endl;
 
         }
-        else if(izbor == 6)
+        else if(izbor == 5)
         {
             string imena[1000];
             for(int i=0;i<brKlijenata;i++){
@@ -144,7 +144,7 @@ int main()
                 }
             }
         }
-        else if(izbor == 7)
+        else if(izbor == 6)
         {
             cout << "Izlaz iz programa" << endl;
             break;
