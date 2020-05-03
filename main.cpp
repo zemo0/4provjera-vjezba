@@ -1,9 +1,87 @@
 #include <iostream>
-
+#include <algorithm>
+#include <numeric>
 using namespace std;
+
+bool negativan(double broj)
+{
+    if(broj<0)
+        return true;
+    return false;
+}
+
+bool tekuci(unsigned long long int broj)
+{
+    if(broj/100000000 == 32)
+        return true;
+    return false;
+}
+
+bool ispisi_podatke(string prezimeIme[],
+                    unsigned long long int brRacuna[],
+                    double saldo[],
+                    int brKLijenata,
+                    string pretraga)
+{
+    int br = 0;
+    for(int i = 0; i < brKLijenata; i++)
+    {
+        if(prezimeIme[i] == pretraga)
+        {
+            cout << brRacuna[i] << ", " << saldo[i] << endl;
+            br++;
+        }
+    }
+    if(br==0)
+        return false;
+    return true;
+}
 
 int main()
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    int brKlijenata = 0;
+    unsigned long long int *brRacuna = new unsigned long long int[1000];
+    string *prezimeIme = new string[1000];
+    double *saldo = new double[1000];
+    int izbor;
+    while(1)
+    {
+        system("cls");
+        cout << "1. Upis novog korisnika" << endl;
+        cout << "2. Ispis svih podataka" << endl;
+        cout << "3. Pretraga prema prezimenu i imenu" << endl;
+        cout << "4. Brisanje računa" << endl;
+        cout << "5. Ispiši sortirano prema prezimenu i imenu" << endl;
+        cout << "6. izlaz" << endl;
+        cout << "Unesite broj opcije: ";
+        cin >> izbor;
+        cout << endl;
+        if(izbor == 1)
+        {
+            unsigned long long unos;
+            while(1)
+            {
+                try
+                {
+                    cout << "Unesite broj racuna: ";
+                    cin >> unos;
+                    if(unos < 1000000000 || unos > 9999999999)
+                        throw "Broj racuna mora imati 10 znamenki";
+                    break;
+                }
+                catch(const char* msg)
+                {
+                    cout << msg << endl;
+                }
+            }
+            brRacuna[brKlijenata] = unos;
+            cout << "Unesite prezime i ime: " << endl;
+            cin.ignore();
+            getline(cin, prezimeIme[brKlijenata]);
+            cout << "Unesite saldo: ";
+            cin >> saldo[brKlijenata];
+            brKlijenata++;
+        }
+
+    return 0; //asdsadsad
 }
